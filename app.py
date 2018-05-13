@@ -4,7 +4,7 @@ import scrape_mars
 
 app = Flask(__name__)
 
-conn = "mongodb://localhost:27017"
+conn = f"mongodb://{dbuser}:{dbpassword}@ds121950.mlab.com:21950/heroku_hj8l92mg"
 client = pymongo.MongoClient(conn)
 db = client.mars
 collection = db.mars
