@@ -1,9 +1,12 @@
+import os
 from flask import Flask, render_template, jsonify, redirect
 import pymongo
 import scrape_mars
 
 app = Flask(__name__)
 
+dbuser = os.environ.get('dbuser')
+dbpassword = os.environ.get('dbpassword')
 conn = f"mongodb://{dbuser}:{dbpassword}@ds121950.mlab.com:21950/heroku_hj8l92mg"
 client = pymongo.MongoClient(conn)
 db = client.mars
