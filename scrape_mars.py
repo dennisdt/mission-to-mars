@@ -6,11 +6,14 @@ import time
 import random
 
 def init_browser():
-    driverpath = os.environ.get('GOOGLE_CHROME_SHIM')
+    driverpath = os.environ.get('GOOGLE_CHROME_BIN')
+    driverpath2 = os.environ.get('GOOGLE_CHROME_SHIM')
     print(driverpath)
+    print(driverpath2)
+
     # old path: '/app/.chromedriver/bin/chromedriver'
-    executable_path = {'executable_path': driverpath}
-    return Browser('chrome', **executable_path)
+    executable_path = {'executable_path': '/app/.chromedriver/bin/chromedriver'}
+    return Browser('chrome', **executable_path, headless=False)
 
 
 def scrape():
