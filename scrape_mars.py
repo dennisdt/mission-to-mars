@@ -4,13 +4,16 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import time
 import random
+from selenium import webdriver
 
 def init_browser():
-    driverpath = os.environ.get('GOOGLE_CHROME_SHIM')
+    driver_path = os.environ.get('GOOGLE_CHROME_SHIM', None)
+    chrome_options = webdriver.ChromeOptions()
+    chome_options.binary_location = driver_path
 
     # old path: '/app/.chromedriver/bin/chromedriver'
-    executable_path = {'executable_path': driverpath}
-    return Browser('chrome', **executable_path, headless=True)
+    executable_path = {'executable_path': driver_path}
+    return Browser('chrome', executable_path="chromedriver", options=chrome_options, headless=True)
 
 
 def scrape():
