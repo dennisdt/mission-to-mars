@@ -12,7 +12,7 @@ def init_browser():
     print(driverpath2)
 
     # old path: '/app/.chromedriver/bin/chromedriver'
-    executable_path = {'executable_path': '/app/.chromedriver/bin/chromedriver'}
+    executable_path = {'executable_path': driverpath}
     return Browser('chrome', **executable_path, headless=False)
 
 
