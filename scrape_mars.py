@@ -10,9 +10,11 @@ def init_browser():
     driver_path = os.environ.get('GOOGLE_CHROME_SHIM', None)
     chrome_options = webdriver.ChromeOptions()
     chrome_options.binary_location = driver_path
+    chrome_options.add_argument('no-sandbox')
+    chrome_options.add_argument('--headless')  
 
     # old path: '/app/.chromedriver/bin/chromedriver'
-    executable_path = {'executable_path': driver_path}
+    # executable_path = {'executable_path': driver_path}
     return Browser('chrome', executable_path="chromedriver", options=chrome_options, headless=True)
 
 
@@ -23,7 +25,7 @@ def scrape():
     # Retrieve Latest News Article
     url = 'https://mars.nasa.gov/news/'
     browser.visit(url)
-    time.sleep(random.random()*1)
+    time.sleep(random.random()*2)
 
     html = browser.html
     news_soup = BeautifulSoup(html, 'html.parser')
@@ -34,11 +36,11 @@ def scrape():
     # Retrieve JPL Mars Featured Image
     url = 'https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars'
     browser.visit(url)
-    time.sleep(random.random()*1)
+    time.sleep(random.random()*2)
 
     # Find and click the full image button
     full_image_elem = browser.find_by_id('full_image')
-    time.sleep(random.random()*2)
+    time.sleep(random.random()*3)
     full_image_elem.click()
 
     # Find the more info button and click that
@@ -59,7 +61,7 @@ def scrape():
     # Retrieve Mars Weather
     url = 'https://twitter.com/marswxreport?lang=en'
     browser.visit(url)
-    time.sleep(random.random()*1)
+    time.sleep(random.random()*2)
 
     html = browser.html
     weather_soup = BeautifulSoup(html, 'html.parser')
@@ -73,7 +75,7 @@ def scrape():
     # Retrieve Mars Hemisphere Data
     url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
     browser.visit(url)
-    time.sleep(random.random()*1)
+    time.sleep(random.random()*2)
 
     # List for hemisphere image links
     hemisphere_image_urls = []
@@ -98,7 +100,7 @@ def scrape():
 
         # Finally, we navigate backwards
         browser.back()
-        time.sleep(random.random()*1)
+        time.sleep(random.random()*2)
 
     # Set hemispheres
     mars["hemispheres"] = hemisphere_image_urls
