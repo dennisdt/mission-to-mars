@@ -1,3 +1,4 @@
+import os
 from splinter import Browser
 from bs4 import BeautifulSoup
 import pandas as pd
@@ -5,7 +6,9 @@ import time
 import random
 
 def init_browser():
-    executable_path = {'executable_path': '/app/.chromedriver/bin/chromedriver'}
+    driverpath = os.environ.get('GOOGLE_CHROME_SHIM')
+    # old path: '/app/.chromedriver/bin/chromedriver'
+    executable_path = {'executable_path': driverpath}
     return Browser('chrome', **executable_path, headless=False)
 
 
