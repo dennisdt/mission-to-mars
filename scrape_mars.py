@@ -9,7 +9,7 @@ from selenium import webdriver
 def init_browser():
     driver_path = os.environ.get('GOOGLE_CHROME_SHIM', None)
     chrome_options = webdriver.ChromeOptions()
-    chome_options.binary_location = driver_path
+    chrome_options.binary_location = driver_path
 
     # old path: '/app/.chromedriver/bin/chromedriver'
     executable_path = {'executable_path': driver_path}
