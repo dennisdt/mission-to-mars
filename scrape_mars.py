@@ -13,7 +13,7 @@ def init_browser():
 
     # old path: '/app/.chromedriver/bin/chromedriver'
     executable_path = {'executable_path': driverpath}
-    return Browser('chrome', **executable_path, headless=False)
+    return Browser('chrome', **executable_path, headless=True)
 
 
 def scrape():
