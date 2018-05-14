@@ -6,10 +6,7 @@ import time
 import random
 
 def init_browser():
-    driverpath = os.environ.get('GOOGLE_CHROME_BIN')
-    driverpath2 = os.environ.get('GOOGLE_CHROME_SHIM')
-    print(driverpath)
-    print(driverpath2)
+    driverpath = os.environ.get('GOOGLE_CHROME_SHIM')
 
     # old path: '/app/.chromedriver/bin/chromedriver'
     executable_path = {'executable_path': driverpath}
