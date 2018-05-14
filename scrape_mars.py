@@ -5,7 +5,7 @@ import time
 import random
 
 def init_browser():
-    executable_path = {'executable_path': '/usr/bin/chromedriver'}
+    executable_path = {'executable_path': '/app/.chromedriver/bin/chromedriver'}
     return Browser('chrome', **executable_path, headless=False)
 
 
