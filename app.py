@@ -1,6 +1,7 @@
 import os
 from flask import Flask, render_template, jsonify, redirect
 import pymongo
+from bson.objectid import ObjectId
 import scrape_mars
 
 app = Flask(__name__)
@@ -21,10 +22,11 @@ def index():
 
 @app.route('/scrape')
 def scrape():
-    mars = db.collection.find_one()
+    mars = db.collection
     mars_data = scrape_mars.scrape()
-    mars.update(
-        mars_data,
+    mars.update_one(
+        {'_id': ObjectId('5af9f2878cda9dbac35711e7')},
+        {'$set': mars_data},
         upsert=True
     )
     return redirect("/", code=302)
