@@ -45,7 +45,7 @@ def scrape():
 
     # Find the more info button and click that
     more_info_elem = browser.find_link_by_partial_text('more info')
-    time.sleep(3)
+    time.sleep(2)
     more_info_elem.click()
 
     # Parse the resulting html with soup
@@ -57,7 +57,7 @@ def scrape():
 
     # Set featured_image
     mars["featured_image"] = f'https://www.jpl.nasa.gov{img_url_rel}'
-'''
+    '''
     # Retrieve Mars Weather
     url = 'https://twitter.com/marswxreport?lang=en'
     browser.visit(url)
@@ -104,16 +104,16 @@ def scrape():
 
     # Set hemispheres
     mars["hemispheres"] = hemisphere_image_urls
-'''
+
     df = pd.read_html('http://space-facts.com/mars/')[0]
     df.columns = ['description', 'value']
     df.set_index('description', inplace=True)
 
     table = df.to_html()
-    table = table.replace('\n', '')
+    table = table.replace('', '')
 
     mars['facts'] = table
-
+    '''
     browser.quit()
 
     return mars
