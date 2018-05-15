@@ -71,7 +71,7 @@ def scrape():
 
     # Set weather
     mars["weather"] = mars_weather_tweet.find('p', 'tweet-text').get_text()
-    '''
+    '''   
     # Retrieve Mars Hemisphere Data
     url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
     browser.visit(url)

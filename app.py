@@ -21,10 +21,9 @@ def index():
 
 @app.route('/scrape')
 def scrape():
-    mars = db.collection
+    mars = db.collection.find_one()
     mars_data = scrape_mars.scrape()
     mars.update(
-        {},
         mars_data,
         upsert=True
     )
@@ -32,4 +31,4 @@ def scrape():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
