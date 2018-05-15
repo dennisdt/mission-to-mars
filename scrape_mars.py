@@ -57,7 +57,7 @@ def scrape():
 
     # Set featured_image
     mars["featured_image"] = f'https://www.jpl.nasa.gov{img_url_rel}'
-
+'''
     # Retrieve Mars Weather
     url = 'https://twitter.com/marswxreport?lang=en'
     browser.visit(url)
@@ -104,7 +104,7 @@ def scrape():
 
     # Set hemispheres
     mars["hemispheres"] = hemisphere_image_urls
-
+'''
     df = pd.read_html('http://space-facts.com/mars/')[0]
     df.columns = ['description', 'value']
     df.set_index('description', inplace=True)
