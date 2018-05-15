@@ -40,12 +40,12 @@ def scrape():
 
     # Find and click the full image button
     full_image_elem = browser.find_by_id('full_image')
-    time.sleep(random.random()*3)
+    time.sleep(random.random()*2)
     full_image_elem.click()
 
     # Find the more info button and click that
     more_info_elem = browser.find_link_by_partial_text('more info')
-    time.sleep(random.random()*3)
+    time.sleep(3)
     more_info_elem.click()
 
     # Parse the resulting html with soup
