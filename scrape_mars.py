@@ -104,7 +104,7 @@ def scrape():
 
     # Set hemispheres
     mars["hemispheres"] = hemisphere_image_urls
-    '''
+
     df = pd.read_html('http://space-facts.com/mars/')[0]
     df.columns = ['description', 'value']
     df.set_index('description', inplace=True)
@@ -113,7 +113,7 @@ def scrape():
     table = table.replace('', '')
 
     mars['facts'] = table
-    
+    '''
     browser.quit()
 
     return mars
