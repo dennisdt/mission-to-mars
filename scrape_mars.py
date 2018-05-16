@@ -11,7 +11,7 @@ def init_browser():
     chrome_options = webdriver.ChromeOptions()
     chrome_options.binary_location = driver_path
     chrome_options.add_argument('no-sandbox')
-    chrome_options.add_argument('--headless')  
+    chrome_options.add_argument('--headless')
 
     # old path: '/app/.chromedriver/bin/chromedriver'
     # executable_path = {'executable_path': driver_path}
